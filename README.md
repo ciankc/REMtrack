@@ -6,7 +6,9 @@ Rapid Eye Movement (REM) sleep is the final stage in the sleep cycle. Your brain
 
 ### Problem Statement
 
-Current at-home sleep trackers use movement and heartrate as the primary indicators of sleep cycles. However, these are not accurate indicators of REM sleep. During a polysomnogram (sleep study), brain waves (EEG) and eye movements (EOG) are monitored to determine REM sleep. Sleep studies are expensive and impractical for a user that simply wants more information regarding their sleep cycles, or someone that wishes to track their sleep over time. The REMtrack solution involves a sleep mask with an integrated inertial measurement unit (IMU), as well as a MyoWare muscle sensor to detect when muscle tone is lost during REM sleep. These sensors will prevent the need for costly sleep studies, reduce the inaccuracies of at-home sleep tracking, and be cheaper and more comfortable than existing EEG headsets. 
+Current at-home sleep trackers use movement and heartrate as the primary indicators of sleep cycles. However, these are not accurate indicators of REM sleep. During a polysomnogram (sleep study), brain waves (EEG) and eye movements (EOG) are monitored to determine REM sleep. Sleep studies are expensive and impractical for a user that simply wants more information regarding their sleep cycles, or someone that wishes to track their sleep over time. 
+
+The REMtrack solution involves a sleep mask with an integrated inertial measurement unit (IMU), as well as a MyoWare muscle sensor to detect when muscle tone is lost during REM sleep. These sensors will prevent the need for costly sleep studies, reduce the inaccuracies of at-home sleep tracking, and be cheaper and more comfortable than existing EEG headsets. 
 
 ### Prior Works
 
