@@ -44,5 +44,7 @@ After gathering enough training data and correctly labeling it with the Muse dev
 
 ### Sources
 1) [Validation of Sleep-Tracking Technology Compared with Polysomnography in Adolescents](https://academic.oup.com/sleep/article/38/9/1461/2418009)
+
 2) [Dynamics of Heart Rate and Sleep Stages in Normals and Patients with Sleep Apnea](nature.com/articles/1300146)
+
 3) [Stages of Human Sleep](http://sleepdisorders.sleepfoundation.org/chapter-1-normal-sleep/stages-of-human-sleep/)
