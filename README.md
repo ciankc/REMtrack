@@ -14,7 +14,7 @@ The REMtrack solution involves a sleep mask with an integrated inertial measurem
 
 ### Prior Works
 
-Recently, companies have begun to incorporate EEG monitoring into headbands in order to track sleep and meditative states. Muse and Dreem have each created solutions that are meant to inform users about their sleep patterns, including REM sleep. Unfortunately, these headbands are bulky and expensive (around $500), and are not a viable solution for all patients. Dreem has validated their hardware with research that indicates their device is as accurate as a polysomnogram, and the goal of REMtrack is to meet that same standard, with purely the IMU and muscle sensor. 
+Recently, companies have begun to incorporate EEG monitoring into headbands in order to track sleep and meditative states. Muse and Dreem have each created solutions that are meant to inform users about their sleep patterns, including REM sleep. Unfortunately, these headbands are bulky and expensive (around $500), and are not a viable solution for all patients. Dreem has validated their hardware with research that indicates their device is as accurate as a polysomnogram, and the goal of REMtrack is to meet that same standard, with purely the IMU and pulse sensor. 
 
 ### Timeline & Deliverables
 * Week 4 - Order materials and finalize hardware design
@@ -26,10 +26,19 @@ Recently, companies have begun to incorporate EEG monitoring into headbands in o
 * Week 10 - Finalize model and compare with Muse
 
 ### Methodology
+
 #### Assembly
+A sparkfun IMU [MPU-9250](https://www.sparkfun.com/products/13762) will be connected to a Raspberry Pi Zero via an I2C interface. This IMU will rest on a sleep mask that tightly rests on the user's eyelids to sense movement. Additionally, the [heart rate sensor](https://www.sparkfun.com/products/11574) will be connected to an Intel Edison board through an analog input. These two embedded devices will stream data to an Azure IoT server using MQ Telemetry Transport (MQTT). This data will be stored so that it can be used for training.
+
 #### Labeled Data/Ground Truth
+The iPhone application Muse Direct will be used to gain access to the raw EEG data. Data will be streamed to the Muse Direct cloud where it will be downloaded in a human-readable format and labeled. We will be looking for alpha, delta, and theta waves (in that order) which will then lead to the beginning of REM sleep -- an pattern with “saw tooth waves" that are low voltage, random, and fast (3). The labeled data will be used in conjuction with the IMU and pulse data on the Azure IoT server to correctly label different stages of sleep and provide the basis for supervised learning.
+
 #### Learning Models
+#### Experimental Validation
+
+### Success Metrics
 
 ### Sources
 1) [Validation of Sleep-Tracking Technology Compared with Polysomnography in Adolescents](https://academic.oup.com/sleep/article/38/9/1461/2418009)
 2) [Dynamics of Heart Rate and Sleep Stages in Normals and Patients with Sleep Apnea](nature.com/articles/1300146)
+3) [Stages of Human Sleep](http://sleepdisorders.sleepfoundation.org/chapter-1-normal-sleep/stages-of-human-sleep/)
