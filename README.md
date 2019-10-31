@@ -6,11 +6,11 @@ Rapid Eye Movement (REM) sleep is the final stage in the sleep cycle. Your brain
 
 ### Problem Statement
 
-Current at-home sleep trackers use movement and heartrate as the primary indicators of sleep cycles. However, these are not accurate indicators of REM sleep. During a polysomnogram (sleep study), brain waves (EEG) and eye movements (EOG) are monitored to determine REM sleep. Sleep studies are expensive and impractical for a user that simply wants more information regarding their sleep cycles, or someone that wishes to track their sleep over time. 
+Current at-home sleep trackers use movement (actigraphy) as the primary indicator of sleep cycles. However, this is based on the "assumption that people move most during wake states with a progressive reduction in motion as they approach the deepest stages of sleep" (1). This is an inaccurate way to classify REM sleep cycles. During a polysomnogram (sleep study), brain waves (EEG) and eye movements (EOG) are monitored to determine REM sleep. Sleep studies are expensive and impractical for a user that simply wants more information regarding their sleep cycles, or someone that wishes to track their sleep over time. 
 
 ### Approach
 
-The REMtrack solution involves a sleep mask with an integrated inertial measurement unit (IMU), as well as a MyoWare muscle sensor to detect when muscle tone is lost during REM sleep. These sensors will prevent the need for costly sleep studies, reduce the inaccuracies of at-home sleep tracking, and be cheaper and more comfortable than existing EEG headsets. 
+The REMtrack solution involves a sleep mask with an integrated inertial measurement unit (IMU), as well as a pulse sensor. Heart rate has been shown to have "clear long-range correlations during REM sleep (H=0.78)", which means that it will be a useful tool to measure (2). These sensors will prevent the need for costly sleep studies, reduce the inaccuracies of at-home sleep tracking, and be cheaper and more comfortable than existing EEG headsets. 
 
 ### Prior Works
 
@@ -24,3 +24,8 @@ Recently, companies have begun to incorporate EEG monitoring into headbands in o
 * Week 8 - Gather training data for intelligent sleep tracking 
 * Week 9 - Create machine learning solution for sleep tracking
 * Week 10 - Finalize model and compare with Muse
+
+### Methodology
+## Assembly
+## Labeled Data/Ground Truth
+## Learning Models
