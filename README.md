@@ -26,6 +26,6 @@ Recently, companies have begun to incorporate EEG monitoring into headbands in o
 * Week 10 - Finalize model and compare with Muse
 
 ### Methodology
-## Assembly
-## Labeled Data/Ground Truth
-## Learning Models
+#### Assembly
+#### Labeled Data/Ground Truth
+#### Learning Models
