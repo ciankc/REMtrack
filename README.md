@@ -29,3 +29,7 @@ Recently, companies have begun to incorporate EEG monitoring into headbands in o
 #### Assembly
 #### Labeled Data/Ground Truth
 #### Learning Models
+
+### Sources
+1) [Validation of Sleep-Tracking Technology Compared with Polysomnography in Adolescents](https://academic.oup.com/sleep/article/38/9/1461/2418009)
+2) [Dynamics of Heart Rate and Sleep Stages in Normals and Patients with Sleep Apnea](nature.com/articles/1300146)
