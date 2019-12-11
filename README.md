@@ -23,6 +23,17 @@ Recently, companies have begun to incorporate EEG monitoring into headbands in o
 
 <img src="images/headband.png" alt="headband" class="inline"/>
 
+In other research, a Convolutional Neural Network achieved 90% accuracy for predicting REM sleep, but it used EEG data for training. With more EEG channels (electrodes hooked up to the patient), accuracy of the model increased. 
+
+<img src="images/bar.png" alt="bar" class="inline"/>
+
+Additionally, the Jawbone up (motion based IMU sensor on wrist) tends to overestimate PSG total sleep time and sleep efficiency. For this wearable, "sound sleep” was positively associated with PSG time in N2 and time in REM. 
+
+<img src="images/jawbone.png" alt="jawbone" class="inline"/>
+
+Even state of the art PSGs rely on Electrooculography (EOG) rather than eyelid IMU sensors, so the work presented here is a novel approach to REM sleep tracking. 
+
+
 ### Timeline & Deliverables
 * Week 4 - Order materials and finalize hardware design
 * Week 5 - Assemble and integrate hardware
@@ -49,7 +60,7 @@ The sensors are powered with 3.3V lines from the microcontrollers. Both of these
 The raw data can be viewed at the following [DropBox link](https://www.dropbox.com/sh/2fkjsiwpo1naz6q/AABdRBSJ_QOWfcs7xz8bPXx7a?dl=0). Pulse data is collected and recorded with every heartbeat. Source code was adapted from the manufacturer to output the desired values, making use of the microcontroller's interrupt routines to send data at the correct times. IMU data is cross-referenced with the accelerometer and gyroscope readings from the Muse headband to filter out head movements and other large motions. IMU motion data is recorder every 500 ms, which provides enough data to create a significant amount of training samples for the neural network. 
 
 #### Labeled Data/Ground Truth
-The iOS application Muse Monitor was used to gain access to the raw EEG data. After data collection was completed for the night, the EEG brainwaves, gyroscope, accelerometer, and RAW data was uploaded to Dropbox. From there, the data was inspected to identify REM cycles. We will be looking for alpha, delta, and theta waves (in that order) which will then lead to the beginning of REM sleep -- a pattern with “sawtooth waves" that are low voltage, random, and fast (3). The timestamps from the Muse data is used to label IMU and pulse data on the to provide the basis for supervised learning. Here is an example of one night's data collection. We can identify 2 periods of REM sleep -- between 3:30AM and 3:40AM, and 5:15AM and 5:35AM. Notice the spike in theta waves before the differnt waves seem to come together indicating a sawtooth pattern.
+The iOS application Muse Monitor was used to gain access to the raw EEG data. After data collection was completed for the night, the EEG brainwaves, gyroscope, accelerometer, and RAW data was uploaded to Dropbox. From there, the data was inspected to identify REM sleep. We will be looking for alpha, delta, and theta waves (in that order) which will then lead to the beginning of REM sleep -- a pattern with “sawtooth waves" that are low voltage, random, and fast (3). The timestamps from the Muse data is used to label IMU and pulse data on the to provide the basis for supervised learning. Here is an example of one night's data collection. We can identify 2 periods of REM sleep -- between 3:30AM and 3:40AM, and 5:15AM and 5:35AM. Notice the spike in theta waves before the differnt waves seem to come together indicating a sawtooth pattern.
 
 <img src="images/muse.png" alt="muse" class="inline"/>
 
