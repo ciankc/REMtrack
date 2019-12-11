@@ -43,13 +43,19 @@ This IMU will rest on a sleep mask that tightly rests on the user's eyelids to s
 
 <img src="images/pulse.png" alt="pulse" class="inline"/>
 
-Both of these devices will stream data to serial ports on a Mac. Python scripts running on the Mac time stamp the data and save into CSV files.
+The sensors are powered with 3.3V lines from the microcontrollers. Both of these devices will stream data to serial ports on a Mac. Python scripts running on the Mac time stamp the data and save into CSV files.
 
 #### Datasets
-The raw data can be viewed at the following [DropBox link](https://www.dropbox.com/sh/2fkjsiwpo1naz6q/AABdRBSJ_QOWfcs7xz8bPXx7a?dl=0). Pulse data is collected and recorded with every heartbeat. Source code was adapted from the manufacture to output the desired values, making use of the microcontroller's interrupt routines to send data at the correct times. IMU data is cross-referenced with the accelerometer and gyroscope readings from the Muse headband to filter out head movements and other large motions. IMU motion data is recorder every 500 ms, which provides enough data to create a significant amount of training samples for the neural network. 
+The raw data can be viewed at the following [DropBox link](https://www.dropbox.com/sh/2fkjsiwpo1naz6q/AABdRBSJ_QOWfcs7xz8bPXx7a?dl=0). Pulse data is collected and recorded with every heartbeat. Source code was adapted from the manufacturer to output the desired values, making use of the microcontroller's interrupt routines to send data at the correct times. IMU data is cross-referenced with the accelerometer and gyroscope readings from the Muse headband to filter out head movements and other large motions. IMU motion data is recorder every 500 ms, which provides enough data to create a significant amount of training samples for the neural network. 
 
 #### Labeled Data/Ground Truth
-The iPhone application Muse Direct will be used to gain access to the raw EEG data. Data will be streamed to the Muse Direct cloud where it will be downloaded in a human-readable format and labeled. We will be looking for alpha, delta, and theta waves (in that order) which will then lead to the beginning of REM sleep -- a pattern with “saw tooth waves" that are low voltage, random, and fast (3). The labeled data will be used in conjuction with the IMU and pulse data on the Azure IoT server to correctly label different stages of sleep and provide the basis for supervised learning.
+The iOS application Muse Monitor was used to gain access to the raw EEG data. After data collection was completed for the night, the EEG brainwaves, gyroscope, accelerometer, and RAW data was uploaded to Dropbox. From there, the data was inspected to identify REM cycles. We will be looking for alpha, delta, and theta waves (in that order) which will then lead to the beginning of REM sleep -- a pattern with “sawtooth waves" that are low voltage, random, and fast (3). The timestamps from the Muse data is used to label IMU and pulse data on the to provide the basis for supervised learning. Here is an example of one night's data collection. We can identify 2 periods of REM sleep -- between 3:30AM and 3:40AM, and 5:15AM and 5:35AM. Notice the spike in theta waves before the differnt waves seem to come together indicating a sawtooth pattern.
+
+<img src="images/muse.png" alt="muse" class="inline"/>
+
+<img src="images/imu.png" alt="imu" class="inline"/>
+
+We can see similar spikes in accelerometer data that occurs during the same time periods.
 
 #### Learning Models
 The raw labeled data from the IMU and pulse sensor will be used to train multivariate multi-step time series forecasting models. A likely candidate for a model is the long short-term memory (LSTM) recurrent neural network which is often used for processing sequences of data. LSTM units can be trained in a supervised fashion using an optimization algorithm, combined with backpropagation through time. 
