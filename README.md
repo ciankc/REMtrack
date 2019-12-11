@@ -75,10 +75,10 @@ After gathering enough training data and correctly labeling it with the Muse dev
 5) [Choosing MUSE: Validation of a Low-Cost, Portable EEG System for ERP Research](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5344886/)
 
 ### Resources
-[Pulse Sensor](https://pulsesensor.com/)
+1) [Pulse Sensor](https://pulsesensor.com/)
 
-[IMU](https://learn.sparkfun.com/tutorials/mpu-9250-hookup-guide/all)
+2) [IMU](https://learn.sparkfun.com/tutorials/mpu-9250-hookup-guide/all)
 
-[Muse Headband Data](https://mind-monitor.com/)
+3) [Muse Headband Data](https://mind-monitor.com/)
 
-[Human Activity Recognition from IMU data using Deep Learning (Tensorflow)](https://github.com/vikranth94/Activity-Recognition)
+4) [Human Activity Recognition from IMU data using Deep Learning (Tensorflow)](https://github.com/vikranth94/Activity-Recognition)
