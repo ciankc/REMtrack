@@ -6,7 +6,7 @@ Rapid Eye Movement (REM) sleep is the final stage in the sleep cycle. Your brain
 
 ### Problem Statement
 
-<img src="https://github.com/ciankc/REMtrack/tree/master/images/psg.png" alt="psg" class="inline"/>
+<img src="images/psg.png" alt="psg" class="inline"/>
 
 Current at-home sleep trackers use movement (actigraphy) as the primary indicator of sleep cycles. However, this is based on the "assumption that people move most during wake states with a progressive reduction in motion as they approach the deepest stages of sleep" (1). This is an inaccurate way to classify REM sleep cycles. During a polysomnogram (sleep study), brain waves (EEG) and eye movements (EOG) are monitored to determine REM sleep. Sleep studies are expensive and impractical for a user that simply wants more information regarding their sleep cycles, or someone that wishes to track their sleep over time. 
 
