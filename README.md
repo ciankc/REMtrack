@@ -63,9 +63,22 @@ The raw labeled data from the IMU and pulse sensor will be used to train multiva
 #### Experimental Validation and Success Metrics
 After gathering enough training data and correctly labeling it with the Muse device, we aim to create a machine learning model that will be able to correctly classify REM sleep given solely the IMU and pulse sensor inputs. An accuracy of greater than 90% within a window of 2-3 minutes will be considered a successful project. Stretch goals include providing sleep insights from the data and possible recommendations regarding sleep and waking times. 
 
-### Sources
+### References
 1) [Validation of Sleep-Tracking Technology Compared with Polysomnography in Adolescents](https://academic.oup.com/sleep/article/38/9/1461/2418009)
 
 2) [Dynamics of Heart Rate and Sleep Stages in Normals and Patients with Sleep Apnea](https://www.nature.com/articles/1300146)
 
 3) [Stages of Human Sleep](http://sleepdisorders.sleepfoundation.org/chapter-1-normal-sleep/stages-of-human-sleep/)
+
+4) [Automatic Sleep Stage Classification Based on Convolutional Neural Network and Fine-Grained Segments](http://downloads.hindawi.com/journals/complexity/2018/9248410.pdf)
+
+5) [Choosing MUSE: Validation of a Low-Cost, Portable EEG System for ERP Research](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5344886/)
+
+### Resources
+[Pulse Sensor](https://pulsesensor.com/)
+
+[IMU](https://learn.sparkfun.com/tutorials/mpu-9250-hookup-guide/all)
+
+[Muse Headband Data](https://mind-monitor.com/)
+
+[Human Activity Recognition from IMU data using Deep Learning (Tensorflow)](https://github.com/vikranth94/Activity-Recognition)
