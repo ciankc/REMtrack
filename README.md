@@ -21,6 +21,8 @@ The REMtrack solution involves a sleep mask with an integrated inertial measurem
 
 Recently, companies have begun to incorporate EEG monitoring into headbands in order to track sleep and meditative states. Muse and Dreem have each created solutions that are meant to inform users about their sleep patterns, including REM sleep. Unfortunately, these headbands are bulky and expensive (around $500), and are not a viable solution for all patients. Additionally, they are uncomfortable to wear for long period of time. Dreem has validated their hardware with research that indicates their device is as accurate as a polysomnogram, and the goal of REMtrack is to meet that same standard, with purely the IMU and pulse sensor. 
 
+<img src="images/headband.png" alt="headband" class="inline"/>
+
 ### Timeline & Deliverables
 * Week 4 - Order materials and finalize hardware design
 * Week 5 - Assemble and integrate hardware
@@ -33,10 +35,14 @@ Recently, companies have begun to incorporate EEG monitoring into headbands in o
 ### Methodology
 
 #### Assembly
-A sparkfun IMU [MPU-9250](https://www.sparkfun.com/products/13762) will be connected to a Raspberry Pi Zero via an I2C interface. This IMU will rest on a sleep mask that tightly rests on the user's eyelids to sense movement. Additionally, the [heart rate sensor](https://www.sparkfun.com/products/11574) will be connected to an Intel Edison board through an analog input. These two embedded devices will stream data to an Azure IoT server using MQ Telemetry Transport (MQTT). This data will be stored so that it can be used for training.
+A sparkfun IMU [MPU-9250](https://www.sparkfun.com/products/13762) is connected to an Arduino Uno microcontroller via an I2C interface. 
+<img src="images/sensor.png" alt="sensor" class="inline"/>
+This IMU will rest on a sleep mask that tightly rests on the user's eyelids to sense movement. Additionally, the [heart rate sensor](https://www.sparkfun.com/products/11574) is connected to another Arduino Uno through an analog input. 
+<img src="images/pulse.png" alt="pulse" class="inline"/>
+Both of these devices will stream data to serial ports on a Mac. Python scripts running on the Mac time stamp the data and save into CSV files.
 
 #### Datasets
-The raw data can be viewed at the following [DropBox link](https://www.dropbox.com/sh/2fkjsiwpo1naz6q/AABdRBSJ_QOWfcs7xz8bPXx7a?dl=0). Pulse data will be averaged over a period of 60 seconds to reduce overhead. IMU data will be filtered to account for head movements and other large motions. During rapid eye movement, the IMU data will be interpreted and flagged in the dataset. IMU motion data will also be logged each 60 seconds, which will be calculated as the offset of accelerometer and gyroscope data. Depending on the results of stand-alone eye movement tests, these metrics may be adjusted to better reflect the realities of REM sleep. 
+The raw data can be viewed at the following [DropBox link](https://www.dropbox.com/sh/2fkjsiwpo1naz6q/AABdRBSJ_QOWfcs7xz8bPXx7a?dl=0). Pulse data is collected and recorded with every heartbeat. Source code was adapted from the manufacture to output the desired values, making use of the microcontroller's interrupt routines to send data at the correct times. IMU data is cross-referenced with the accelerometer and gyroscope readings from the Muse headband to filter out head movements and other large motions. IMU motion data is recorder every 500 ms, which provides enough data to create a significant amount of training samples for the neural network. 
 
 #### Labeled Data/Ground Truth
 The iPhone application Muse Direct will be used to gain access to the raw EEG data. Data will be streamed to the Muse Direct cloud where it will be downloaded in a human-readable format and labeled. We will be looking for alpha, delta, and theta waves (in that order) which will then lead to the beginning of REM sleep -- a pattern with “saw tooth waves" that are low voltage, random, and fast (3). The labeled data will be used in conjuction with the IMU and pulse data on the Azure IoT server to correctly label different stages of sleep and provide the basis for supervised learning.
