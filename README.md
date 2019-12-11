@@ -36,9 +36,11 @@ Recently, companies have begun to incorporate EEG monitoring into headbands in o
 
 #### Assembly
 A sparkfun IMU [MPU-9250](https://www.sparkfun.com/products/13762) is connected to an Arduino Uno microcontroller via an I2C interface. 
+
 <img src="images/sensor.png" alt="sensor" class="inline"/>
 
 This IMU will rest on a sleep mask that tightly rests on the user's eyelids to sense movement. Additionally, the [heart rate sensor](https://www.sparkfun.com/products/11574) is connected to another Arduino Uno through an analog input. 
+
 <img src="images/pulse.png" alt="pulse" class="inline"/>
 
 Both of these devices will stream data to serial ports on a Mac. Python scripts running on the Mac time stamp the data and save into CSV files.
