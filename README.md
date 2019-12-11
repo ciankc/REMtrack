@@ -6,9 +6,12 @@ Rapid Eye Movement (REM) sleep is the final stage in the sleep cycle. Your brain
 
 ### Problem Statement
 
+Sleep studies are expensive and impractical for users that wish to know more about their sleeping patterns. Polysomnography (PSG) monitors brain activity (EEG), eye movements (EOG), muscle activity (EMG), and heart rhythm (ECG), but is cumbersome and requires a trip to a sleep center or hospital. Sleep studies are expensive and impractical for a user that simply wants more information regarding their sleep cycles, or someone that wishes to track their sleep over time. 
+
 <img src="images/psg.png" alt="psg" class="inline"/>
 
-Current at-home sleep trackers use movement (actigraphy) as the primary indicator of sleep cycles. However, this is based on the "assumption that people move most during wake states with a progressive reduction in motion as they approach the deepest stages of sleep" (1). This is an inaccurate way to classify REM sleep cycles. During a polysomnogram (sleep study), brain waves (EEG) and eye movements (EOG) are monitored to determine REM sleep. Sleep studies are expensive and impractical for a user that simply wants more information regarding their sleep cycles, or someone that wishes to track their sleep over time. 
+Current at-home sleep trackers use movement (actigraphy) as the primary indicator of sleep cycles. However, this is based on the "assumption that people move most during wake states with a progressive reduction in motion as they approach the deepest stages of sleep" (1). This is an inaccurate way to classify REM sleep cycles. The goal of this project is to accurately track REM sleep without 
+expensive EEG equipment and create a solution that is more comfortable than existing sleep wearables.
 
 ### Approach
 
@@ -16,7 +19,7 @@ The REMtrack solution involves a sleep mask with an integrated inertial measurem
 
 ### Prior Works
 
-Recently, companies have begun to incorporate EEG monitoring into headbands in order to track sleep and meditative states. Muse and Dreem have each created solutions that are meant to inform users about their sleep patterns, including REM sleep. Unfortunately, these headbands are bulky and expensive (around $500), and are not a viable solution for all patients. Dreem has validated their hardware with research that indicates their device is as accurate as a polysomnogram, and the goal of REMtrack is to meet that same standard, with purely the IMU and pulse sensor. 
+Recently, companies have begun to incorporate EEG monitoring into headbands in order to track sleep and meditative states. Muse and Dreem have each created solutions that are meant to inform users about their sleep patterns, including REM sleep. Unfortunately, these headbands are bulky and expensive (around $500), and are not a viable solution for all patients. Additionally, they are uncomfortable to wear for long period of time. Dreem has validated their hardware with research that indicates their device is as accurate as a polysomnogram, and the goal of REMtrack is to meet that same standard, with purely the IMU and pulse sensor. 
 
 ### Timeline & Deliverables
 * Week 4 - Order materials and finalize hardware design
