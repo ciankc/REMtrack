@@ -27,7 +27,7 @@ In other research, a Convolutional Neural Network achieved 90% accuracy for pred
 
 <img src="images/bar.png" alt="bar" class="inline"/>
 
-Additionally, the Jawbone up (motion based IMU sensor on wrist) tends to overestimate PSG total sleep time and sleep efficiency. For this wearable, "sound sleep” was positively associated with PSG time in N2 and time in REM. 
+Additionally, the Jawbone up (motion based IMU sensor on wrist) tends to overestimate PSG total sleep time and sleep efficiency. For this wearable, "sound sleep” was positively associated with PSG time in N2 and time in REM, but REM stages were not able to be uniquely identified.
 
 <img src="images/jawbone.png" alt="jawbone" class="inline"/>
 
