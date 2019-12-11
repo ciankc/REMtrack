@@ -6,6 +6,8 @@ Rapid Eye Movement (REM) sleep is the final stage in the sleep cycle. Your brain
 
 ### Problem Statement
 
+<img src="images/psg.png" alt="psg" class="inline"/>
+
 Current at-home sleep trackers use movement (actigraphy) as the primary indicator of sleep cycles. However, this is based on the "assumption that people move most during wake states with a progressive reduction in motion as they approach the deepest stages of sleep" (1). This is an inaccurate way to classify REM sleep cycles. During a polysomnogram (sleep study), brain waves (EEG) and eye movements (EOG) are monitored to determine REM sleep. Sleep studies are expensive and impractical for a user that simply wants more information regarding their sleep cycles, or someone that wishes to track their sleep over time. 
 
 ### Approach
@@ -31,7 +33,7 @@ Recently, companies have begun to incorporate EEG monitoring into headbands in o
 A sparkfun IMU [MPU-9250](https://www.sparkfun.com/products/13762) will be connected to a Raspberry Pi Zero via an I2C interface. This IMU will rest on a sleep mask that tightly rests on the user's eyelids to sense movement. Additionally, the [heart rate sensor](https://www.sparkfun.com/products/11574) will be connected to an Intel Edison board through an analog input. These two embedded devices will stream data to an Azure IoT server using MQ Telemetry Transport (MQTT). This data will be stored so that it can be used for training.
 
 #### Datasets
-Pulse data will be averaged over a period of 60 seconds to reduce overhead. IMU data will be filtered to account for head movements and other large motions. During rapid eye movement, the IMU data will be interpreted and flagged in the dataset. IMU motion data will also be logged each 60 seconds, which will be calculated as the offset of accelerometer and gyroscope data. Depending on the results of stand-alone eye movement tests, these metrics may be adjusted to better reflect the realities of REM sleep. 
+The raw data can be viewed at the following [DropBox link](https://www.dropbox.com/sh/2fkjsiwpo1naz6q/AABdRBSJ_QOWfcs7xz8bPXx7a?dl=0). Pulse data will be averaged over a period of 60 seconds to reduce overhead. IMU data will be filtered to account for head movements and other large motions. During rapid eye movement, the IMU data will be interpreted and flagged in the dataset. IMU motion data will also be logged each 60 seconds, which will be calculated as the offset of accelerometer and gyroscope data. Depending on the results of stand-alone eye movement tests, these metrics may be adjusted to better reflect the realities of REM sleep. 
 
 #### Labeled Data/Ground Truth
 The iPhone application Muse Direct will be used to gain access to the raw EEG data. Data will be streamed to the Muse Direct cloud where it will be downloaded in a human-readable format and labeled. We will be looking for alpha, delta, and theta waves (in that order) which will then lead to the beginning of REM sleep -- a pattern with “saw tooth waves" that are low voltage, random, and fast (3). The labeled data will be used in conjuction with the IMU and pulse data on the Azure IoT server to correctly label different stages of sleep and provide the basis for supervised learning.
