@@ -72,7 +72,17 @@ We can see similar spikes in accelerometer data that occurs during the same time
 The raw labeled data from the IMU and pulse sensor will be used to train multivariate multi-step time series forecasting models. A likely candidate for a model is the long short-term memory (LSTM) recurrent neural network which is often used for processing sequences of data. LSTM units can be trained in a supervised fashion using an optimization algorithm, combined with backpropagation through time. 
 
 #### Experimental Validation and Success Metrics
-After gathering enough training data and correctly labeling it with the Muse device, we aim to create a machine learning model that will be able to correctly classify REM sleep given solely the IMU and pulse sensor inputs. An accuracy of greater than 90% within a window of 2-3 minutes will be considered a successful project. Stretch goals include providing sleep insights from the data and possible recommendations regarding sleep and waking times. 
+After gathering enough training data and correctly labeling it with the Muse device, we aimed to create a machine learning model that will be able to correctly classify REM sleep given solely the IMU and pulse sensor inputs. An accuracy of greater than 90% within a window of 2-3 minutes will be considered a successful project.
+
+Based on the Human Activity Recognition code that is listed in the Resources sections, I created a Convolutional LSTM to classify the IMU data as being in REM sleep or not. Based on the graphs and correlation of the pulse sensor, I decided not to include this data to train the model. Additionally, the magnetometer data was extremely noisy and demonstrated significant drift, so I limited the model to only 6 features: accelerometer and gyroscope values for the X, Y, and Z axes. 
+
+The model summary is shown below.
+
+<img src="images/summary.png" alt="summary" class="inline"/>
+
+Data was collected over 21 nights, with each night yielding between 2 and 3 REM cycles. After examining the Muse headband EEG results, REM sleep was identified and labeled for the IMU data. By subsampling the data, I was able to get 420 total samples of 512 time steps (500 ms) each. This resulted in 294 training, 63 validation, 63 test samples with a 70-15-15 split. 
+
+Running the ConvLSTM with a batch size of 256, loss function of sparse categorical crossentropy, an 'adam' optimizer, and training for 5 epochs, I was able to achieve an accuracy and mean f1 score of 0.9206. This beats our desired threshold of 90% accuracy and indicates a successful project. The confusion matrix is as follows: [[30  0] [ 5 28]]
 
 ### References
 1) [Validation of Sleep-Tracking Technology Compared with Polysomnography in Adolescents](https://academic.oup.com/sleep/article/38/9/1461/2418009)
