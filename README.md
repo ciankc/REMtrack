@@ -90,6 +90,8 @@ Rather than have cumbersome wires coming out of the eyemask, a better design wou
 
 Due to the time constraints of this project, data was collected for only one subject. Adding training data from multiple subjects would decrease overfitting and account for more varieties of rapid-eye movement, as well as each individual's unique sleep patterns. The system and predictive model could be connected to an alarm clock that would not wake someone up during REM sleep. Recommended wake-up/sleeping times could also be ascertained for optimal REM cycles and overall sleep. 
 
+Another novel idea would be to incorporate an LED into the sleep mask which would gradually get brighter to encourage someone to wake up. This would only begin within a given wakeup window and would be after the completion of a REM cycle.
+
 ### References
 1) [Validation of Sleep-Tracking Technology Compared with Polysomnography in Adolescents](https://academic.oup.com/sleep/article/38/9/1461/2418009)
 
