@@ -84,6 +84,12 @@ Data was collected over 21 nights, with each night yielding between 2 and 3 REM 
 
 Running the ConvLSTM with a batch size of 256, loss function of sparse categorical crossentropy, an 'adam' optimizer, and training for 5 epochs, I was able to achieve an accuracy and mean f1 score of 0.9206. This beats our desired threshold of 90% accuracy and indicates a successful project. The confusion matrix is as follows: [[30  0] [ 5 28]]
 
+#### Future Directions
+
+Rather than have cumbersome wires coming out of the eyemask, a better design would involved an integrated battery and bluetooth chip. This would allow for freedom and full range of motion while sleeping. The process of manually labeling REM sleep data from the Muse EEG headband was tedious and could potentially be automted. 
+
+Due to the time constraints of this project, data was collected for only one subject. Adding training data from multiple subjects would decrease overfitting and account for more varieties of rapid-eye movement, as well as each individual's unique sleep patterns. The system and predictive model could be connected to an alarm clock that would not wake someone up during REM sleep. Recommended wake-up/sleeping times could also be ascertained for optimal REM cycles and overall sleep. 
+
 ### References
 1) [Validation of Sleep-Tracking Technology Compared with Polysomnography in Adolescents](https://academic.oup.com/sleep/article/38/9/1461/2418009)
 
