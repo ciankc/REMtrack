@@ -82,7 +82,7 @@ The model summary is shown below.
 
 Data was collected over 21 nights, with each night yielding between 2 and 3 REM cycles. After examining the Muse headband EEG results, REM sleep was identified and labeled for the IMU data. By subsampling the data, I was able to get 420 total samples of 512 time steps (500 ms) each. This resulted in 294 training, 63 validation, 63 test samples with a 70-15-15 split. 
 
-Running the ConvLSTM with a batch size of 256, loss function of sparse categorical crossentropy, an 'adam' optimizer, and training for 5 epochs, I was able to achieve an accuracy and mean f1 score of 0.9206. This beats our desired threshold of 90% accuracy and indicates a successful project. The confusion matrix is as follows: [[30  0] [ 5 28]]
+Running the ConvLSTM with a batch size of 256, loss function of sparse categorical crossentropy, an 'adam' optimizer, and training for 5 epochs, I was able to achieve an accuracy and mean f1 score of 0.9206. This beats our desired threshold of 90% accuracy and indicates a successful project. The confusion matrix is as follows: [[30  0] [ 5 28]]. With five false negatives, our model is incorrectly determining that IMU data from some parts of REM sleep is actually during regular sleep. This may be because of variations in eye movement or pauses that may occur during rapid-eye movement. 
 
 #### Future Directions
 
