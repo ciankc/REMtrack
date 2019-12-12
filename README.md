@@ -103,6 +103,8 @@ Another novel idea would be to incorporate an LED into the sleep mask which woul
 
 5) [Choosing MUSE: Validation of a Low-Cost, Portable EEG System for ERP Research](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5344886/)
 
+6) [Convolutional LSTM Network: A Machine Learning Approach for Precipitation Nowcasting](https://arxiv.org/abs/1506.04214)
+
 ### Resources
 1) [Pulse Sensor](https://pulsesensor.com/)
 
