@@ -84,6 +84,30 @@ Data was collected over 21 nights, with each night yielding between 2 and 3 REM 
 
 Running the ConvLSTM with a batch size of 256, loss function of sparse categorical crossentropy, an 'adam' optimizer, and training for 5 epochs, I was able to achieve an accuracy and mean f1 score of 0.9206. This beats our desired threshold of 90% accuracy and indicates a successful project. The confusion matrix is as follows: [[30  0] [ 5 28]]. With five false negatives, our model is incorrectly determining that IMU data from some parts of REM sleep is actually during regular sleep. This may be because of variations in eye movement or pauses that may occur during rapid-eye movement. 
 
+#### Other Learning Models
+
+Other types of neural networks have also been shown to be effective at human activity recognition. The following models were trained on the same IMU data (with and without dropout and batch normalization): Multilayer Perceptron (MLP), Convolutional Neural Network (CNN), and Long short term memory (LSTM). The results are summarized below. Some of the models were unable to classify the data and simply outputted all 0's or all 1's instead. 
+ 
+MLP - no dropout, batch norm
+[[30  0]
+ [33  0]]
+the mean-f1 score: 0.3226
+accuracy is: 0.4762
+
+CNN - no dropout, batch norm
+[[30  0]
+ [13 20]]
+the mean-f1 score: 0.7883
+accuracy is: 0.7937
+
+LSTM - dropout, batch norm
+[[ 0 30]
+ [ 0 33]]
+the mean-f1 score: 0.3438
+accuracy is: 0.5238
+
+Both LSTM and MLP were unsuccessful models as they were not able to differentiate between the two classes. The CNN was the best model of the 3, with an accuracy of 0.79, but it still pales in comparison to the recommended ConvLSTM which had an accuracy of greater than 0.9
+
 #### Future Directions
 
 Rather than have cumbersome wires coming out of the eyemask, a better design would involved an integrated battery and bluetooth chip. This would allow for freedom and full range of motion while sleeping. The process of manually labeling REM sleep data from the Muse EEG headband was tedious and could potentially be automted. 
