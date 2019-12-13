@@ -106,7 +106,7 @@ LSTM - dropout, batch norm
 the mean-f1 score: 0.3438
 accuracy is: 0.5238
 
-Both LSTM and MLP were unsuccessful models as they were not able to differentiate between the two classes. The CNN was the best model of the 3, with an accuracy of 0.79, but it still pales in comparison to the recommended ConvLSTM which had an accuracy of greater than 0.9
+The model summaries can be seen in the Jupyter notebook. Both LSTM and MLP were unsuccessful models as they were not able to differentiate between the two classes. The CNN was the best model of the 3, with an accuracy of 0.79, but it still pales in comparison to the recommended ConvLSTM which had an accuracy of greater than 0.9
 
 #### Future Directions
 
